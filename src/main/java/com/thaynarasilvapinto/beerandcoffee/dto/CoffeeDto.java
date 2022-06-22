@@ -1,13 +1,14 @@
 package com.thaynarasilvapinto.beerandcoffee.dto;
 
 import com.thaynarasilvapinto.beerandcoffee.entity.Beer;
+import com.thaynarasilvapinto.beerandcoffee.entity.Coffee;
 import com.thaynarasilvapinto.beerandcoffee.utils.TypeMeasures;
 
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class BeerDto {
+public class CoffeeDto {
 
     private Long id;
 
@@ -25,7 +26,7 @@ public class BeerDto {
 
     private LocalDateTime updatedAt;
 
-    public BeerDto() {
+    public CoffeeDto() {
     }
 
     public Long getId() {
@@ -92,31 +93,31 @@ public class BeerDto {
         this.updatedAt = updatedAt;
     }
 
-    public Beer build() {
-        Beer beer = new Beer();
-        beer.setId(this.id);
-        beer.setName(this.name);
-        beer.setBrand(this.brand);
-        beer.setAmount(this.amount);
-        beer.setCapacity(this.capacity);
-        beer.setTypeMeasures(this.typeMeasures);
-        beer.setCreatedAt(this.createdAt);
-        beer.setUpdatedAt(this.updatedAt);
-        return beer ;
+    public Coffee build() {
+        Coffee coffee = new Coffee();
+        coffee.setId(this.id);
+        coffee.setName(this.name);
+        coffee.setBrand(this.brand);
+        coffee.setAmount(this.amount);
+        coffee.setCapacity(this.capacity);
+        coffee.setTypeMeasures(this.typeMeasures);
+        coffee.setCreatedAt(this.createdAt);
+        coffee.setUpdatedAt(this.updatedAt);
+        return coffee ;
     }
 
-    public BeerDto(Beer beer) {
-        this.id = beer.getId();
-        this.name = beer.getName();
-        this.brand = beer.getBrand();
-        this.amount = beer.getAmount();
-        this.capacity = beer.getCapacity();
-        this.typeMeasures = beer.getTypeMeasures();
-        this.createdAt = beer.getCreatedAt();
-        this.updatedAt = beer.getUpdatedAt();
+    public CoffeeDto(Coffee coffee) {
+        this.id = coffee.getId();
+        this.name = coffee.getName();
+        this.brand = coffee.getBrand();
+        this.amount = coffee.getAmount();
+        this.capacity = coffee.getCapacity();
+        this.typeMeasures = coffee.getTypeMeasures();
+        this.createdAt = coffee.getCreatedAt();
+        this.updatedAt = coffee.getUpdatedAt();
     }
 
-    public static List<BeerDto> convert(List<Beer> beers){
-        return beers.stream().map(BeerDto::new).collect(Collectors.toList());
+    public static List<CoffeeDto> convert(List<Coffee> coffee){
+        return coffee.stream().map(CoffeeDto::new).collect(Collectors.toList());
     }
 }
