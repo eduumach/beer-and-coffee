@@ -27,4 +27,14 @@ public class BeerController {
     public ResponseEntity<BeerDto> update(@RequestBody BeerDto beerDto){
         return new ResponseEntity<>(beerService.update(beerDto), HttpStatus.CREATED);
     }
+
+    //GET BY ID
+    //GET ALL
+    //DELETE
+    /*
+    QUALQUER REGRA DE NEGOCIO
+    EXEMPLO: SÓ ATUALIZA SE O FOR ML
+
+    CAFÉ
+     */
 }
