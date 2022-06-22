@@ -1,31 +1,44 @@
-package com.thaynarasilvapinto.beerandcoffee.dto;
+package com.thaynarasilvapinto.beerandcoffee.entity;
 
-import com.thaynarasilvapinto.beerandcoffee.entity.Beer;
+import com.sun.istack.NotNull;
+import com.thaynarasilvapinto.beerandcoffee.dto.CoffeeDto;
 import com.thaynarasilvapinto.beerandcoffee.utils.TypeMeasures;
 
+import javax.persistence.*;
 import java.time.LocalDateTime;
-import java.util.List;
-import java.util.stream.Collectors;
 
-public class BeerDto {
+@Table(name = "coffee")
+@Entity
+public class Coffee {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    @Column
+    @NotNull
     private String name;
 
+    @Column
     private String brand;
 
+    @Column
     private Integer amount;
 
+    @Column
     private Double capacity;
 
+    @Column(name = "type_measures")
+    @Enumerated(EnumType.STRING)
     private TypeMeasures typeMeasures;
 
+    @Column(name = "created_at")
     private LocalDateTime createdAt;
 
+    @Column(name = "updated_at")
     private LocalDateTime updatedAt;
 
-    public BeerDto() {
+    public Coffee() {
     }
 
     public Long getId() {
@@ -92,31 +105,16 @@ public class BeerDto {
         this.updatedAt = updatedAt;
     }
 
-    public Beer build() {
-        Beer beer = new Beer();
-        beer.setId(this.id);
-        beer.setName(this.name);
-        beer.setBrand(this.brand);
-        beer.setAmount(this.amount);
-        beer.setCapacity(this.capacity);
-        beer.setTypeMeasures(this.typeMeasures);
-        beer.setCreatedAt(this.createdAt);
-        beer.setUpdatedAt(this.updatedAt);
-        return beer ;
-    }
-
-    public BeerDto(Beer beer) {
-        this.id = beer.getId();
-        this.name = beer.getName();
-        this.brand = beer.getBrand();
-        this.amount = beer.getAmount();
-        this.capacity = beer.getCapacity();
-        this.typeMeasures = beer.getTypeMeasures();
-        this.createdAt = beer.getCreatedAt();
-        this.updatedAt = beer.getUpdatedAt();
-    }
-
-    public static List<BeerDto> convert(List<Beer> beers){
-        return beers.stream().map(BeerDto::new).collect(Collectors.toList());
+    public CoffeeDto build() {
+        CoffeeDto coffeeDto = new CoffeeDto();
+        coffeeDto.setId(this.id);
+        coffeeDto.setName(this.name);
+        coffeeDto.setBrand(this.brand);
+        coffeeDto.setAmount(this.amount);
+        coffeeDto.setCapacity(this.capacity);
+        coffeeDto.setTypeMeasures(this.typeMeasures);
+        coffeeDto.setCreatedAt(this.createdAt);
+        coffeeDto.setUpdatedAt(this.updatedAt);
+        return coffeeDto;
     }
 }

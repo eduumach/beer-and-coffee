@@ -7,6 +7,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/beer")
 public class BeerController {
@@ -26,6 +28,21 @@ public class BeerController {
     @PutMapping()
     public ResponseEntity<BeerDto> update(@RequestBody BeerDto beerDto){
         return new ResponseEntity<>(beerService.update(beerDto), HttpStatus.CREATED);
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<BeerDto> getId(@PathVariable Long id){
+        return new ResponseEntity<>(beerService.getBeer(id), HttpStatus.OK);
+    }
+
+    @GetMapping()
+    public ResponseEntity<List<BeerDto>> getAll(){
+        return new ResponseEntity<>(beerService.getAll(), HttpStatus.OK);
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<BeerDto> deleteId(@PathVariable Long id){
+        return new ResponseEntity<>(beerService.delete(id), HttpStatus.OK);
     }
 
     //GET BY ID
