@@ -2,7 +2,7 @@ package com.thaynarasilvapinto.beerandcoffee.service;
 
 import com.thaynarasilvapinto.beerandcoffee.dto.CoffeeDto;
 import com.thaynarasilvapinto.beerandcoffee.entity.Coffee;
-import com.thaynarasilvapinto.beerandcoffee.respository.CoffeeRepository;
+import com.thaynarasilvapinto.beerandcoffee.repository.CoffeeRepository;
 import com.thaynarasilvapinto.beerandcoffee.utils.TypeMeasures;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

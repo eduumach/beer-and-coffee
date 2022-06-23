@@ -1,6 +1,5 @@
 package com.thaynarasilvapinto.beerandcoffee.dto;
 
-import com.thaynarasilvapinto.beerandcoffee.entity.Beer;
 import com.thaynarasilvapinto.beerandcoffee.entity.Coffee;
 import com.thaynarasilvapinto.beerandcoffee.utils.TypeMeasures;
 
