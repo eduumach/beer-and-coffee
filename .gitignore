@@ -38,3 +38,10 @@ build/
 mvnw
 mvnw.cmd
 target
+
+.classpath
+.project
+.settings
+.jpb
+.idea
+/bin
