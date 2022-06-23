@@ -30,7 +30,7 @@ public class CoffeeService {
 
     public CoffeeDto update(CoffeeDto coffeeDto){
         repository.findById(coffeeDto.getId()).orElseThrow();
-        Coffee coffee = repository.getReferenceById(coffeeDto.getId());
+        Coffee coffee = repository.findById(coffeeDto.getId()).orElseThrow(() -> new RuntimeException("Id not found."));
         if(coffee.getTypeMeasures() == TypeMeasures.L){
             throw new RuntimeException("Type Measures L.");
         }
@@ -43,8 +43,7 @@ public class CoffeeService {
     }
 
     public CoffeeDto getCoffee(Long id){
-        repository.findById(id).orElseThrow();
-        Coffee coffee = repository.getReferenceById(id);
+        Coffee coffee = repository.findById(id).orElseThrow(() -> new RuntimeException("Id not found."));
         return coffee.build();
     }
 

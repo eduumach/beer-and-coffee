@@ -29,7 +29,7 @@ public class BeerService {
 
     public BeerDto update(BeerDto beerDto){
         repository.findById(beerDto.getId()).orElseThrow();
-        Beer beer = repository.getReferenceById(beerDto.getId());
+        Beer beer = repository.findById(beerDto.getId()).orElseThrow(() -> new RuntimeException("Id not found."));
         if(beer.getTypeMeasures() == TypeMeasures.L){
             throw new RuntimeException("Type Measures L.");
         }
@@ -43,7 +43,7 @@ public class BeerService {
 
     public BeerDto getBeer(Long id){
         repository.findById(id).orElseThrow();
-        Beer beer = repository.getReferenceById(id);
+        Beer beer = repository.findById(id).orElseThrow(() -> new RuntimeException("Id not found."));
         return beer.build();
     }
 
